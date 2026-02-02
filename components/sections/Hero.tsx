@@ -1,6 +1,7 @@
-import { Github, Mail, Phone, ArrowRight, Sparkles } from 'lucide-react'
+import { Github, Mail, Phone, ArrowRight, Sparkles, Linkedin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -10,9 +11,11 @@ export default function Hero() {
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background"></div>
-      
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="space-y-8">
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20"> </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Text Content */}
+          <div className="space-y-8 order-2 lg:order-1">
           {/* Badge */}
           <Badge variant="outline" className="gap-1.5 animate-in fade-in duration-700">
             <Sparkles size={12} />
@@ -32,8 +35,8 @@ export default function Hero() {
 
           {/* Specialization */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            BS Information Technology graduate specializing in <span className="text-foreground font-medium">Web and App Development</span>. 
-            Building modern, scalable applications with React, Next.js, and Flutter.
+            BS Information Technology graduate working as a <span className="text-foreground font-medium">QA and Full Stack Web Developer</span> at Kalamansi Studios Inc.
+            Specializing in building modern, scalable applications using <span className="text-foreground font-medium">AWS and its components</span>, React, Next.js, and Flutter.
           </p>
 
           {/* CTA Buttons */}
@@ -56,6 +59,18 @@ export default function Hero() {
                 GitHub
               </a>
             </Button>
+
+            <Button size="lg" variant="outline" asChild>
+              <a
+                href="https://www.linkedin.com/in/cristan-ramos-837763306"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Linkedin className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                LinkedIn
+              </a>
+            </Button>
           </div>
 
           {/* Contact Info */}
@@ -76,6 +91,27 @@ export default function Hero() {
                 <Phone size={16} className="group-hover:scale-110 transition-transform" />
                 0929-621-8192
               </a>
+            </div>
+          </div>
+
+          {/* Right Column - Profile Picture */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-in fade-in slide-in-from-right-4 duration-700 delay-300">
+            <div className="relative">
+              {/* Decorative background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl transform rotate-3"></div>
+              
+              {/* Image container */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-background shadow-2xl">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Cristan Ramos - QA and Full Stack Web Developer"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

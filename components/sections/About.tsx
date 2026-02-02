@@ -50,16 +50,32 @@ export default function About() {
               </div>
               <h3 className="text-lg font-medium group-hover:text-foreground transition-colors">Experience</h3>
             </div>
-            <div className="space-y-2 pl-13 border-l-2 border-border group-hover:border-primary transition-colors ml-5">
-              <div className="flex items-center gap-2">
-                <Briefcase className="w-4 h-4 text-muted-foreground" />
-                <p className="font-medium">
-                  Junior Philippines Computer Society - Dasmariñas Chapter
+            <div className="space-y-6 pl-13 border-l-2 border-border group-hover:border-primary transition-colors ml-5">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Briefcase className="w-4 h-4 text-muted-foreground" />
+                  <p className="font-medium">
+                    QA and Full Stack Web Developer
+                  </p>
+                </div>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Kalamansi Studios Inc.
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Developing and maintaining web applications using AWS and its components. Ensuring quality through comprehensive testing and implementing scalable solutions for production environments.
                 </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Engineered and managed a web-based event registration system that successfully processed over 200 participant sign-ups, demonstrating strong technical implementation and project management skills.
-              </p>
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Briefcase className="w-4 h-4 text-muted-foreground" />
+                  <p className="font-medium">
+                    Junior Philippines Computer Society - Dasmariñas Chapter
+                  </p>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Engineered and managed a web-based event registration system that successfully processed over 200 participant sign-ups, demonstrating strong technical implementation and project management skills.
+                </p>
+              </div>
             </div>
           </div>
 
