@@ -18,28 +18,26 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#skills', label: 'Skills' },
+    { href: '#about', label: 'Experience' },
+    { href: '#skills', label: 'Tech Stack' },
     { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
   ]
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-background/95 backdrop-blur-sm border-b border-border'
+          : 'bg-background/50 backdrop-blur-sm'
+        }`}
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           {/* Logo/Name */}
           <a
             href="#home"
-            className="text-sm font-medium hover:text-muted-foreground transition-all hover:tracking-wider"
+            className="text-lg font-bold hover:text-muted-foreground transition-colors"
           >
-            CR
+            Cristan Ramos
           </a>
 
           {/* Desktop Navigation */}

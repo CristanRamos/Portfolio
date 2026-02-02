@@ -103,93 +103,57 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Projects
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold flex items-center gap-2">
+            <Code2 className="w-5 h-5" />
+            Recent Projects
           </h2>
-          <p className="text-muted-foreground">
-            Selected development work
-          </p>
+          <button className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+            View All
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
         </div>
 
-        {/* Projects List */}
-        <div className="space-y-8">
-          {projects.map((project) => {
-            const Icon = project.icon
-            return (
-              <Card 
-                key={project.id} 
-                className="border-none shadow-none hover:bg-muted/50 transition-all duration-300 group cursor-pointer"
-                onClick={() => setSelectedProject(project)}
-              >
-                <CardHeader className="px-0">
-                  <div className="flex items-start gap-4">
-                    {/* Icon */}
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-4 mb-2">
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                          {project.title}
-                        </CardTitle>
-                        <Badge variant="outline" className="shrink-0 group-hover:border-primary transition-colors">
-                          {project.category.split(' ')[0]}
-                        </Badge>
-                      </div>
-                      <CardDescription className="text-sm">
-                        {project.description}
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {projects.map((project) => (
+            <Card
+              key={project.id}
+              className="group cursor-pointer hover:shadow-md transition-all"
+              onClick={() => setSelectedProject(project)}
+            >
+              <CardHeader className="p-4 pb-3">
+                <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors flex items-start justify-between">
+                  <span>{project.title}</span>
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0 ml-2" />
+                </CardTitle>
+                <CardDescription className="text-sm mt-1">
+                  {project.description}
+                </CardDescription>
+              </CardHeader>
 
-                <CardContent className="px-0 pl-16">
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                    {project.technologies.map((tech) => (
-                      <span key={tech}>{tech}</span>
-                    )).reduce((prev, curr) => [prev, ' · ', curr] as any)}
-                  </div>
-                </CardContent>
-
-                <CardFooter className="px-0 pl-16 gap-2">
-                  <Button 
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      setSelectedProject(project)
-                    }} 
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 hover:bg-transparent hover:text-foreground"
-                  >
-                    Details →
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    className="h-8 hover:bg-transparent hover:text-foreground"
-                    asChild
-                  >
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+              <CardFooter className="p-4 pt-0">
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground"
                     >
-                      <Github size={14} className="mr-1" />
-                      Code
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            )
-          })}
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+              </CardFooter>
+            </Card>
+          ))}
         </div>
       </div>
 

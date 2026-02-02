@@ -1,4 +1,4 @@
-import { Github, Mail, Phone, ArrowRight, Sparkles, Linkedin } from 'lucide-react'
+import { Github, Mail, Phone, MapPin, Linkedin, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
@@ -7,112 +7,112 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center pt-20 pb-12"
     >
-      {/* Minimal background */}
-      <div className="absolute inset-0 -z-10 bg-background"></div>
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20"></div>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="space-y-8 order-2 lg:order-1">
-            {/* Badge */}
-            <Badge variant="outline" className="gap-1.5 animate-in fade-in duration-700">
-              <Sparkles size={12} />
-              <span>Available for opportunities</span>
-            </Badge>
-
-            {/* Name */}
-            <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
-                Cristan Ramos
-              </h1>
-              <div className="flex items-center gap-2 text-lg text-muted-foreground">
-                <div className="h-px w-12 bg-border"></div>
-                <span>Full-Stack Developer</span>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 items-start">
+          {/* Left Column - Profile Picture */}
+          <div className="flex justify-center lg:justify-start">
+            <div className="relative w-64 h-64 lg:w-full lg:h-auto lg:aspect-square">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border shadow-lg bg-muted">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Cristan Ramos"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
+          </div>
 
-            {/* Specialization */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-              BS Information Technology graduate working as a <span className="text-foreground font-medium">QA and Full Stack Web Developer</span> at Kalamansi Studios Inc.
-              Specializing in building modern, scalable applications using <span className="text-foreground font-medium">AWS and its components</span>, React, Next.js, and Flutter.
-            </p>
+          {/* Right Column - Info */}
+          <div className="space-y-6">
+            {/* Name and Title */}
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-2">
+                Cristan Ramos
+              </h1>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                <MapPin size={16} />
+                <span>Dasmariñas, Philippines</span>
+              </div>
+              <p className="text-lg text-muted-foreground">
+                QA | Full Stack Web Developer | Content Creator
+              </p>
+            </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 pt-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
-              <Button size="lg" className="group" asChild>
-                <a href="#projects">
-                  View Projects
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <Button size="default" className="group" asChild>
+                <a href="mailto:ramoscristan4@gmail.com">
+                  <Mail size={16} className="mr-2" />
+                  Send Email
                 </a>
               </Button>
 
-              <Button size="lg" variant="outline" asChild>
+              <Button size="default" variant="outline" asChild>
+                <a href="tel:+639296218192">
+                  <Phone size={16} className="mr-2" />
+                  Schedule a Call
+                </a>
+              </Button>
+
+              <Button size="default" variant="outline" asChild>
+                <a href="#about">
+                  Read my blog
+                </a>
+              </Button>
+            </div>
+
+            {/* Availability Badge */}
+            <Badge variant="outline" className="w-fit">
+              Available for opportunities
+            </Badge>
+
+            {/* About Description */}
+            <div className="pt-4 border-t">
+              <h2 className="text-xl font-semibold mb-3">About</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                I'm a full-stack web developer specializing in developing solutions with JavaScript, React, and AWS.
+                I work on projects including building modern web applications, mobile apps, and implementing scalable cloud solutions.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+                I've helped startups grow and streamline their processes through software solutions as a QA and Full Stack Web Developer at Kalamansi Studios Inc.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+                Lately, I've been diving deeper into cloud technologies, focusing on AWS and its components to build robust, scalable applications.
+              </p>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex flex-wrap gap-2">
+              <Button size="sm" variant="ghost" asChild>
                 <a
                   href="https://github.com/CristanRamos"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group"
+                  className="gap-2"
                 >
-                  <Github className="mr-2 h-4 w-4 transition-transform group-hover:rotate-12" />
+                  <Github size={16} />
                   GitHub
                 </a>
               </Button>
-
-              <Button size="lg" variant="outline" asChild>
+              <Button size="sm" variant="ghost" asChild>
                 <a
                   href="https://www.linkedin.com/in/cristan-ramos-837763306"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group"
+                  className="gap-2"
                 >
-                  <Linkedin className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                  <Linkedin size={16} />
                   LinkedIn
                 </a>
               </Button>
             </div>
-
-            {/* Contact Info */}
-            <div className="pt-8 border-t animate-in fade-in duration-700 delay-700">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Get in touch</p>
-              <div className="flex flex-wrap gap-4 text-sm">
-                <a
-                  href="mailto:ramoscristan4@gmail.com"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
-                >
-                  <Mail size={16} className="group-hover:scale-110 transition-transform" />
-                  ramoscristan4@gmail.com
-                </a>
-                <a
-                  href="tel:+639296218192"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
-                >
-                  <Phone size={16} className="group-hover:scale-110 transition-transform" />
-                  0929-621-8192
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column - Profile Picture */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-in fade-in slide-in-from-right-4 duration-700 delay-300">
-              <div className="relative">
-                {/* Image container */}
-                <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                  <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border shadow-lg bg-muted">
-                    <Image
-                      src="/images/profile.jpg"
-                      alt="Cristan Ramos - QA and Full Stack Web Developer"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
     </section>
   )
 }

@@ -1,106 +1,104 @@
-import { Award, Database, GraduationCap, Users, Briefcase, Code2, BookOpen } from 'lucide-react'
+import { Award, Database, GraduationCap, Briefcase, Code2, ChevronRight } from 'lucide-react'
 
 export default function About() {
+  const experiences = [
+    {
+      title: 'QA and Full Stack Web Developer',
+      company: 'Kalamansi Studios Inc.',
+      year: '2025',
+      description: 'Developing and maintaining web applications using AWS and its components. Ensuring quality through comprehensive testing.'
+    },
+    {
+      title: 'Software Engineering Lead',
+      company: 'Junior Philippines Computer Society',
+      year: '2024',
+      description: 'Engineered and managed a web-based event registration system that successfully processed over 200 participant sign-ups.'
+    },
+    {
+      title: 'BS Information Technology',
+      company: 'National University - Dasmariñas',
+      year: '2019',
+      description: 'Specialization in Web and App Development · GPA: 3.1'
+    },
+  ]
+
+  const certifications = [
+    { name: 'IT Specialist - Databases', issuer: 'Certiport' },
+    { name: 'IT Specialist - HTML and CSS', issuer: 'Certiport' },
+  ]
+
   return (
-    <section id="about" className="py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-              <BookOpen className="w-4 h-4 text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold">
-              About
+    <section id="about" className="py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Experience Section */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold flex items-center gap-2">
+              <Briefcase className="w-5 h-5" />
+              Experience
             </h2>
           </div>
-          <p className="text-muted-foreground">
-            Background and experience
-          </p>
+
+          <div className="space-y-4">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="flex gap-4 p-4 rounded-lg border border-border hover:bg-muted/30 transition-colors group"
+              >
+                <div className="flex-shrink-0 w-16 text-right">
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                    {exp.year}
+                  </span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold mb-1 group-hover:text-foreground transition-colors">
+                    {exp.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {exp.company}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {exp.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="space-y-12">
-          {/* Education */}
-          <div className="group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <GraduationCap className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-medium group-hover:text-foreground transition-colors">Education</h3>
-            </div>
-            <div className="space-y-2 pl-13 border-l-2 border-border group-hover:border-primary transition-colors ml-5">
-              <p className="font-medium">
-                Bachelor of Science in Information Technology
-              </p>
-              <p className="text-sm text-muted-foreground flex items-center gap-2">
-                <Code2 className="w-3.5 h-3.5" />
-                Specialization in Web and App Development
-              </p>
-              <p className="text-sm text-muted-foreground">
-                National University - Dasmariñas · GPA: 3.1
-              </p>
-            </div>
+        {/* Certifications Section */}
+        <div>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold flex items-center gap-2">
+              <Award className="w-5 h-5" />
+              Recent Certifications
+            </h2>
           </div>
 
-          {/* Experience */}
-          <div className="group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <Users className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-medium group-hover:text-foreground transition-colors">Experience</h3>
-            </div>
-            <div className="space-y-6 pl-13 border-l-2 border-border group-hover:border-primary transition-colors ml-5">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <Briefcase className="w-4 h-4 text-muted-foreground" />
-                  <p className="font-medium">
-                    QA and Full Stack Web Developer
+          <div className="space-y-3">
+            {certifications.map((cert, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 p-4 rounded-lg border border-border hover:bg-muted/30 transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center group-hover:bg-muted/50 transition-colors flex-shrink-0">
+                  {cert.name.includes('Database') ? (
+                    <Database className="w-5 h-5 text-muted-foreground" />
+                  ) : (
+                    <Code2 className="w-5 h-5 text-muted-foreground" />
+                  )}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium group-hover:text-foreground transition-colors">
+                    {cert.name}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {cert.issuer}
                   </p>
                 </div>
-                <p className="text-sm text-muted-foreground mb-2">
-                  Kalamansi Studios Inc.
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Developing and maintaining web applications using AWS and its components. Ensuring quality through comprehensive testing and implementing scalable solutions for production environments.
-                </p>
+                <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
               </div>
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <Briefcase className="w-4 h-4 text-muted-foreground" />
-                  <p className="font-medium">
-                    Junior Philippines Computer Society - Dasmariñas Chapter
-                  </p>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Engineered and managed a web-based event registration system that successfully processed over 200 participant sign-ups, demonstrating strong technical implementation and project management skills.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div className="group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <Award className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-medium group-hover:text-foreground transition-colors">Certifications</h3>
-            </div>
-            <ul className="space-y-3 text-sm pl-13 ml-5">
-              <li className="flex items-center gap-3 hover:text-foreground transition-colors cursor-default group/item">
-                <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center group-hover/item:bg-primary/10 transition-colors">
-                  <Database className="w-4 h-4 text-muted-foreground group-hover/item:text-primary" />
-                </div>
-                <span>IT Specialist - Databases</span>
-              </li>
-              <li className="flex items-center gap-3 hover:text-foreground transition-colors cursor-default group/item">
-                <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center group-hover/item:bg-primary/10 transition-colors">
-                  <Code2 className="w-4 h-4 text-muted-foreground group-hover/item:text-primary" />
-                </div>
-                <span>IT Specialist - HTML and CSS</span>
-              </li>
-            </ul>
+            ))}
           </div>
         </div>
       </div>
