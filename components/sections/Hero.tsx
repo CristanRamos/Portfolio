@@ -16,7 +16,7 @@ export default function Hero() {
             <div className="relative w-64 h-64 lg:w-full lg:h-auto lg:aspect-square">
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border shadow-lg bg-muted">
                 <Image
-                  src="/images/profile.jpg"
+                  src="/images/Cristan2x2.jpg"
                   alt="Cristan Ramos"
                   fill
                   className="object-cover"
