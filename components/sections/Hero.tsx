@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 items-start">
           {/* Left Column - Profile Picture */}
           <div className="flex justify-center lg:justify-start">
-            <div className="relative w-60 h-60 lg:w-full lg:h-auto lg:aspect-square">
+            <div className="relative w-56 h-56 lg:w-56 lg:h-56 lg:aspect-square">
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border shadow-lg bg-muted">
                 <Image
                   src="/images/Cristan2x2.jpg"
