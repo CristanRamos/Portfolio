@@ -101,7 +101,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl transform rotate-3"></div>
               
               {/* Image container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              {/* <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-background shadow-2xl">
                   <Image
                     src="/images/Cristan2x2.jpg"
@@ -111,7 +111,7 @@ export default function Hero() {
                     priority
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
