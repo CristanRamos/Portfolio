@@ -74,14 +74,14 @@ export default function Hero() {
             <div className="pt-4 border-t">
               <h2 className="text-xl font-semibold mb-3">About</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                I'm a full-stack web developer specializing in developing solutions with JavaScript, React, and AWS.
+                I&apos;m a full-stack web developer specializing in developing solutions with JavaScript, React, and AWS.
                 I work on projects including building modern web applications, mobile apps, and implementing scalable cloud solutions.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mt-3">
-                I've helped startups grow and streamline their processes through software solutions as a QA and Full Stack Web Developer at Kalamansi Studios Inc.
+                I&apos;ve helped startups grow and streamline their processes through software solutions as a QA and Full Stack Web Developer at Kalamansi Studios Inc.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mt-3">
-                Lately, I've been diving deeper into cloud technologies, focusing on AWS and its components to build robust, scalable applications.
+                Lately, I&apos;ve been diving deeper into cloud technologies, focusing on AWS and its components to build robust, scalable applications.
               </p>
             </div>
 
