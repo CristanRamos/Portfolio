@@ -104,7 +104,7 @@ export default function Hero() {
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-background shadow-2xl">
                   <Image
-                    src="/images/profile.jpg"
+                    src="/images/Cristan2x2.jpg"
                     alt="Cristan Ramos - QA and Full Stack Web Developer"
                     fill
                     className="object-cover"
