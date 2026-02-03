@@ -9,7 +9,7 @@ export default function About() {
       description: 'Developing and maintaining web applications using AWS and its components. Ensuring quality through comprehensive testing.'
     },
     {
-      title: 'Software Engineering Lead',
+      title: 'Team Lead - Event Registration System',
       company: 'Junior Philippines Computer Society',
       year: '2024',
       description: 'Engineered and managed a web-based event registration system that successfully processed over 200 participant sign-ups.'
