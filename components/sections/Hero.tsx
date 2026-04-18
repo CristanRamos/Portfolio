@@ -38,7 +38,7 @@ export default function Hero() {
                 <span>Dasmariñas, Philippines</span>
               </div>
               <p className="text-lg text-muted-foreground">
-                QA | Full Stack Web Developer | Student Intern
+                QA | Full Stack Web Developer
               </p>
             </div>
 
