@@ -1,4 +1,4 @@
-import { Award, Database, GraduationCap, Briefcase, Code2, ChevronRight, Linkedin } from 'lucide-react'
+import { Award, Database, GraduationCap, Briefcase, Code2, ChevronRight } from 'lucide-react'
 
 export default function About() {
   const experiences = [
@@ -110,7 +110,6 @@ export default function About() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
             >
-              <Linkedin className="w-4 h-4" />
               <span>Check my LinkedIn account for my certifications</span>
               <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </a>

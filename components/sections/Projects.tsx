@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ExternalLink, Github, Code2, Smartphone, Globe, Database as DatabaseIcon, ArrowUpRight } from 'lucide-react'
+import { ExternalLink, Code2, Smartphone, Globe, Database as DatabaseIcon, ArrowUpRight } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -222,7 +222,6 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="mr-2" size={14} />
                       View Code
                     </a>
                   </Button>

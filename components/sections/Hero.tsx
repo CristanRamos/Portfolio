@@ -1,4 +1,4 @@
-import { Github, Mail, Phone, MapPin, Linkedin, Calendar } from 'lucide-react'
+import { Mail, Phone, MapPin, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
@@ -94,7 +94,6 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="gap-2"
                 >
-                  <Github size={16} />
                   GitHub
                 </a>
               </Button>
@@ -105,7 +104,6 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="gap-2"
                 >
-                  <Linkedin size={16} />
                   LinkedIn
                 </a>
               </Button>
