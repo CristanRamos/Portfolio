@@ -100,6 +100,23 @@ export default function Projects() {
       ],
       githubLink: 'https://github.com/CristanRamos',
     },
+    {
+      id: 5,
+      title: 'Unified Application and Certification System',
+      category: 'Cloud-Native Web Application',
+      description: 'A scalable serverless platform designed to automate the end-to-end lifecycle of digital applications and official certifications.',
+      detailedDescription: 'Architected a high-availability solution using a serverless framework to streamline complex application workflows. The system leverages event-driven logic to handle submissions, multi-stage approvals, and automated certificate issuance, eliminating the need for manual processing and physical infrastructure management.',
+      technologies: ['AWS Lambda', 'Amazon API Gateway', 'AWS Step Functions', 'Amazon DynamoDB', 'JavaScript/Node.js'],
+      icon: Code2, // Or a cloud-related icon like CloudCog/Server
+      highlights: [
+        'Built a 100% serverless architecture to ensure high scalability and cost-efficiency',
+        'Orchestrated complex multi-step approval workflows using AWS Step Functions',
+        'Designed a high-performance NoSQL schema in DynamoDB for millisecond data retrieval',
+        'Automated document generation and digital certification issuance',
+        'Implemented secure, RESTful entry points via Amazon API Gateway',
+        'Reduced operational overhead by eliminating traditional server maintenance',
+      ],
+    }
   ]
 
   return (

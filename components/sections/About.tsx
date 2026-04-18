@@ -1,4 +1,4 @@
-import { Award, Database, GraduationCap, Briefcase, Code2, ChevronRight } from 'lucide-react'
+import { Award, Database, GraduationCap, Briefcase, Code2, ChevronRight, Linkedin } from 'lucide-react'
 
 export default function About() {
   const experiences = [
@@ -25,6 +25,7 @@ export default function About() {
   const certifications = [
     { name: 'IT Specialist - Databases', issuer: 'Certiport' },
     { name: 'IT Specialist - HTML and CSS', issuer: 'Certiport' },
+    { name: 'IT Specialist - Project Management', issuer: 'Certiport' }
   ]
 
   return (
@@ -99,6 +100,20 @@ export default function About() {
                 <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
               </div>
             ))}
+          </div>
+
+          {/* New LinkedIn Link Section */}
+          <div className="mt-6 pt-4 border-t border-border/50 text-center">
+            <a
+              href="https://www.linkedin.com/in/cristan-ramos-837763306"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
+            >
+              <Linkedin className="w-4 h-4" />
+              <span>Check my LinkedIn account for my certifications</span>
+              <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+            </a>
           </div>
         </div>
       </div>
