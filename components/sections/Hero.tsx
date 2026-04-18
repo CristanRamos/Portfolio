@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Calendar } from 'lucide-react'
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
@@ -92,8 +92,9 @@ export default function Hero() {
                   href="https://github.com/CristanRamos"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="gap-2"
+                  className="flex items-center gap-2"
                 >
+                  <ExternalLink className="w-4 h-4" />
                   GitHub
                 </a>
               </Button>
@@ -102,8 +103,9 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/cristan-ramos-837763306"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="gap-2"
+                  className="flex items-center gap-2"
                 >
+                  <ExternalLink className="w-4 h-4" />
                   LinkedIn
                 </a>
               </Button>
