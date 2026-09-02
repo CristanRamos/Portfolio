@@ -98,12 +98,7 @@ export default function About() {
           {/* LinkedIn Link Section */}
           <Reveal delay={certifications.length * 100}>
             <div className="mt-6 pt-4 border-t border-border/50 text-center">
-              <a>
-                href="https://www.linkedin.com/in/cristan-ramos-837763306"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
-
+              <a href="https://www.linkedin.com/in/cristan-ramos-837763306" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group">
                 <span>Check my LinkedIn account for my certifications</span>
               </a>
             </div>
