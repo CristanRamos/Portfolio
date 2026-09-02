@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ProjectCard from '@/components/reveal-items/ProjectCard'
 import { Code2, Smartphone, Globe, Database as DatabaseIcon, ArrowUpRight } from 'lucide-react'
 import { SiGithub } from 'react-icons/si'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -140,60 +141,18 @@ export default function Projects() {
         {/* Projects Grid — 3 columns on large screens so 5 items only
             leave a single empty slot instead of a whole empty column. */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {projects.map((project) => {
-            const Icon = project.icon
-            return (
-              <Card
-                key={project.id}
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelectedProject(project)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    setSelectedProject(project)
-                  }
-                }}
-                className="group cursor-pointer hover:shadow-md hover:border-primary/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              >
-                <CardHeader className="p-4 pb-3">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-primary" />
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                  </div>
-                  <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide">
-                    {project.category}
-                  </p>
-                  <CardDescription className="text-sm mt-1">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-
-                <CardFooter className="p-4 pt-0">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
-                </CardFooter>
-              </Card>
-            )
-          })}
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              category={project.category}
+              technologies={project.technologies}
+              icon={project.icon}
+              index={index}
+              onClick={() => setSelectedProject(project)}
+            />
+          ))}
         </div>
       </div>
 
