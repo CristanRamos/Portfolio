@@ -16,9 +16,11 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // "Experience" renamed to "About" — #about now also contains Education
+  // and Certifications, so "Experience" undersold what's actually there.
   const navLinks = [
     { href: '#home', label: 'Home' },
-    { href: '#about', label: 'Experience' },
+    { href: '#about', label: 'About' },
     { href: '#skills', label: 'Tech Stack' },
     { href: '#projects', label: 'Projects' },
   ]
@@ -26,8 +28,8 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-background/95 backdrop-blur-sm border-b border-border'
-          : 'bg-background/50 backdrop-blur-sm'
+        ? 'bg-background/95 backdrop-blur-sm border-b border-border'
+        : 'bg-background/50 backdrop-blur-sm'
         }`}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,7 +37,7 @@ export default function Navigation() {
           {/* Logo/Name */}
           <a
             href="#home"
-            className="text-lg font-bold hover:text-muted-foreground transition-colors"
+            className="text-lg font-bold hover:text-primary transition-colors"
           >
             Cristan Ramos
           </a>
@@ -49,7 +51,7 @@ export default function Navigation() {
                 className="text-sm text-muted-foreground hover:text-foreground transition-all relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
               </a>
             ))}
             <ThemeToggle />

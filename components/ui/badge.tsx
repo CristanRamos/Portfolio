@@ -8,8 +8,10 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
+        // Was bg-foreground/text-background — same grayscale-only issue
+        // as Button's default variant. Now reflects the actual accent.
         default:
-          "border-transparent bg-foreground text-background",
+          "border-transparent bg-primary text-primary-foreground",
         secondary:
           "border-transparent bg-muted text-foreground",
         destructive:

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
   const [mounted, setMounted] = useState(false)
 
   // Set mounted to true after component mounts
@@ -26,7 +26,10 @@ export default function ThemeToggle() {
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
   }
 
-  // Prevent hydration mismatch by not rendering until mounted
+  // Prevent hydration mismatch by not rendering the live icon until mounted.
+  // Defaulting the placeholder to Moon (not Sun) since this site is dark by
+  // default — matches what's actually on screen for the vast majority of
+  // first paints, minimizing the visible flash.
   if (!mounted) {
     return (
       <Button
@@ -35,7 +38,7 @@ export default function ThemeToggle() {
         className="w-9 h-9"
         aria-label="Toggle theme"
       >
-        <Sun className="h-4 w-4" />
+        <Moon className="h-4 w-4" />
       </Button>
     )
   }

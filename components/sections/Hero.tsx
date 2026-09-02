@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
+import { Mail, Phone, MapPin, ExternalLink, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
@@ -37,13 +37,13 @@ export default function Hero() {
                 <MapPin size={16} />
                 <span>Dasmariñas, Philippines</span>
               </div>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-primary font-medium">
                 QA | Full Stack Web Developer
               </p>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-3">
+            {/* Action Buttons - one clear primary, rest secondary/tertiary */}
+            <div className="flex flex-wrap items-center gap-3">
               <Button size="default" className="group" asChild>
                 <a href="mailto:ramoscristan4@gmail.com">
                   <Mail size={16} className="mr-2" />
@@ -58,15 +58,18 @@ export default function Hero() {
                 </a>
               </Button>
 
-              <Button size="default" variant="outline" asChild>
-                <a href="#about">
-                  Read my blog
+              {/* Was "Read my blog" linking to #about — mislabeled dead end.
+                  Renamed + repointed to the actual content it should surface. */}
+              <Button size="default" variant="ghost" className="group" asChild>
+                <a href="#projects">
+                  View My Work
+                  <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
             </div>
 
             {/* Availability Badge */}
-            <Badge variant="outline" className="w-fit">
+            <Badge variant="outline" className="w-fit border-primary/40 text-primary">
               Available for opportunities
             </Badge>
 

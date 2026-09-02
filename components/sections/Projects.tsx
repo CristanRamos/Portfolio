@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { ExternalLink, Code2, Smartphone, Globe, Database as DatabaseIcon, ArrowUpRight } from 'lucide-react'
+import { Code2, Smartphone, Globe, Database as DatabaseIcon, ArrowUpRight } from 'lucide-react'
+import { SiGithub } from 'react-icons/si'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -107,7 +108,7 @@ export default function Projects() {
       description: 'A scalable serverless platform designed to automate the end-to-end lifecycle of digital applications and official certifications.',
       detailedDescription: 'Architected a high-availability solution using a serverless framework to streamline complex application workflows. The system leverages event-driven logic to handle submissions, multi-stage approvals, and automated certificate issuance, eliminating the need for manual processing and physical infrastructure management.',
       technologies: ['AWS Lambda', 'Amazon API Gateway', 'AWS Step Functions', 'Amazon DynamoDB', 'JavaScript/Node.js'],
-      icon: Code2, // Or a cloud-related icon like CloudCog/Server
+      icon: Code2,
       highlights: [
         'Built a 100% serverless architecture to ensure high scalability and cost-efficiency',
         'Orchestrated complex multi-step approval workflows using AWS Step Functions',
@@ -116,6 +117,8 @@ export default function Projects() {
         'Implemented secure, RESTful entry points via Amazon API Gateway',
         'Reduced operational overhead by eliminating traditional server maintenance',
       ],
+      // No githubLink/demoLink yet — dialog below shows an honest fallback
+      // instead of silently omitting a links section.
     }
   ]
 
@@ -134,43 +137,63 @@ export default function Projects() {
           </button>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((project) => (
-            <Card
-              key={project.id}
-              className="group cursor-pointer hover:shadow-md transition-all"
-              onClick={() => setSelectedProject(project)}
-            >
-              <CardHeader className="p-4 pb-3">
-                <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors flex items-start justify-between">
-                  <span>{project.title}</span>
-                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0 ml-2" />
-                </CardTitle>
-                <CardDescription className="text-sm mt-1">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
+        {/* Projects Grid — 3 columns on large screens so 5 items only
+            leave a single empty slot instead of a whole empty column. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {projects.map((project) => {
+            const Icon = project.icon
+            return (
+              <Card
+                key={project.id}
+                role="button"
+                tabIndex={0}
+                onClick={() => setSelectedProject(project)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setSelectedProject(project)
+                  }
+                }}
+                className="group cursor-pointer hover:shadow-md hover:border-primary/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <CardHeader className="p-4 pb-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  </div>
+                  <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors">
+                    {project.title}
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide">
+                    {project.category}
+                  </p>
+                  <CardDescription className="text-sm mt-1">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
 
-              <CardFooter className="p-4 pt-0">
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 3).map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
-                </div>
-              </CardFooter>
-            </Card>
-          ))}
+                <CardFooter className="p-4 pt-0">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
+                </CardFooter>
+              </Card>
+            )
+          })}
         </div>
       </div>
 
@@ -214,18 +237,36 @@ export default function Projects() {
                   </ul>
                 </div>
 
-                {/* Links */}
-                {selectedProject.githubLink && (
-                  <Button asChild variant="outline" size="sm">
-                    <a
-                      href={selectedProject.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Code
-                    </a>
-                  </Button>
-                )}
+                {/* Links — honest fallback instead of silently showing nothing */}
+                <div className="flex items-center gap-3">
+                  {selectedProject.githubLink ? (
+                    <Button asChild variant="outline" size="sm">
+                      <a
+                        href={selectedProject.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <SiGithub className="w-4 h-4 mr-2" />
+                        View Code
+                      </a>
+                    </Button>
+                  ) : (
+                    <span className="text-sm text-muted-foreground italic">
+                      Code repository is private for this project.
+                    </span>
+                  )}
+                  {selectedProject.demoLink && (
+                    <Button asChild size="sm">
+                      <a
+                        href={selectedProject.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
             </>
           )}

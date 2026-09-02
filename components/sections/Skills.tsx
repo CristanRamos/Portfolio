@@ -1,5 +1,4 @@
-import { Code, Layers, ChevronRight } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
+import { Layers } from 'lucide-react'
 import * as SiIcons from 'react-icons/si'
 
 export default function Skills() {
@@ -45,16 +44,15 @@ export default function Skills() {
   return (
     <section id="skills" className="py-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex items-center justify-between mb-6">
+        {/* Section Header
+            "View All" was removed — every skill was already visible, so the
+            button was a dead affordance (see Projects.tsx for the same
+            label wired to something real, once a /projects page exists). */}
+        <div className="flex items-center gap-2 mb-6">
           <h2 className="text-2xl font-bold flex items-center gap-2">
             <Layers className="w-5 h-5" />
             Tech Stack
           </h2>
-          <button className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-            View All
-            <ChevronRight className="w-4 h-4" />
-          </button>
         </div>
 
         {/* Skills Grid */}
@@ -71,13 +69,9 @@ export default function Skills() {
                   return (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-muted hover:bg-muted/70 transition-colors border border-border flex items-center gap-2"
+                      className="px-3 py-1.5 text-sm rounded-full bg-muted hover:bg-primary/10 hover:border-primary/40 transition-colors border border-border flex items-center gap-2"
                     >
-                      {Icon ? (
-                        <Icon className="w-4 h-4" aria-hidden />
-                      ) : (
-                        <Code className="w-4 h-4" />
-                      )}
+                      {Icon && <Icon className="w-4 h-4" aria-hidden />}
                       <span>{skill}</span>
                     </span>
                   )
