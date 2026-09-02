@@ -1,5 +1,6 @@
-import { Code, Server, Layers, ChevronRight } from 'lucide-react'
+import { Code, Layers, ChevronRight } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import * as SiIcons from 'react-icons/si'
 
 export default function Skills() {
   const skillCategories = [
@@ -16,6 +17,30 @@ export default function Skills() {
       skills: ['AWS', 'Vercel', 'Firebase', 'Git', 'Supabase'],
     },
   ]
+
+  const iconMap: Record<string, string> = {
+    'JavaScript': 'SiJavascript',
+    'React': 'SiReact',
+    'Tailwind CSS': 'SiTailwindcss',
+    'HTML': 'SiHtml5',
+    'CSS': 'SiCss3',
+    'Flutter': 'SiFlutter',
+    'Dart': 'SiDart',
+    'Bootstrap': 'SiBootstrap',
+
+    'Node.js': 'SiNodedotjs',
+    'PHP': 'SiPhp',
+    'PostgreSQL': 'SiPostgresql',
+    'MongoDB': 'SiMongodb',
+    'MySQL': 'SiMysql',
+    'REST APIs': 'SiPostman',
+
+    'AWS': 'SiAmazonaws',
+    'Vercel': 'SiVercel',
+    'Firebase': 'SiFirebase',
+    'Git': 'SiGit',
+    'Supabase': 'SiSupabase',
+  }
 
   return (
     <section id="skills" className="py-16">
@@ -40,14 +65,23 @@ export default function Skills() {
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 text-sm rounded-full bg-muted hover:bg-muted/70 transition-colors border border-border"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {category.skills.map((skill) => {
+                  const iconName = iconMap[skill]
+                  const Icon = iconName ? (SiIcons as any)[iconName] : null
+                  return (
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 text-sm rounded-full bg-muted hover:bg-muted/70 transition-colors border border-border flex items-center gap-2"
+                    >
+                      {Icon ? (
+                        <Icon className="w-4 h-4" aria-hidden />
+                      ) : (
+                        <Code className="w-4 h-4" />
+                      )}
+                      <span>{skill}</span>
+                    </span>
+                  )
+                })}
               </div>
             </div>
           ))}

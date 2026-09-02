@@ -16,10 +16,10 @@ export default function Hero() {
             <div className="relative w-56 h-56 lg:w-56 lg:h-56 lg:aspect-square">
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border shadow-lg bg-muted">
                 <Image
-                  src="/images/Cristan2x2.jpg"
+                  src="/images/gradpic.jpg"
                   alt="Cristan Ramos"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   priority
                 />
               </div>
