@@ -1,4 +1,4 @@
-import { Award, Database, GraduationCap, Briefcase, Code2, ChevronRight } from 'lucide-react'
+import { Award, Database, GraduationCap, Briefcase, Code2, ClipboardList, ChevronRight } from 'lucide-react'
 
 export default function About() {
   const experiences = [
@@ -6,26 +6,33 @@ export default function About() {
       title: 'QA and Full Stack Web Developer',
       company: 'Kalamansi Studios Inc.',
       year: '2025',
+      type: 'Full-time',
       description: 'Developing and maintaining web applications using AWS and its components. Ensuring quality through comprehensive testing.'
     },
     {
       title: 'Team Lead - Event Registration System',
       company: 'Junior Philippines Computer Society',
       year: '2024',
+      type: 'Project',
       description: 'Engineered and managed a web-based event registration system that successfully processed over 200 participant sign-ups.'
     },
+  ]
+
+  const education = [
     {
       title: 'BS Information Technology',
-      company: 'National University - Dasmariñas',
+      school: 'National University - Dasmariñas',
       year: '2019',
       description: 'Specialization in Web and App Development · GPA: 3.1'
     },
   ]
 
+  // Add a real credentialUrl per cert if you have one (Credly/Certiport verify link).
+  // Rows without a credentialUrl render as plain (non-clickable) cards, no chevron.
   const certifications = [
-    { name: 'IT Specialist - Databases', issuer: 'Certiport' },
-    { name: 'IT Specialist - HTML and CSS', issuer: 'Certiport' },
-    { name: 'IT Specialist - Project Management', issuer: 'Certiport' }
+    { name: 'IT Specialist - Databases', issuer: 'Certiport', icon: Database, credentialUrl: '' },
+    { name: 'IT Specialist - HTML and CSS', issuer: 'Certiport', icon: Code2, credentialUrl: '' },
+    { name: 'IT Specialist - Project Management', issuer: 'Certiport', icon: ClipboardList, credentialUrl: '' },
   ]
 
   return (
@@ -62,6 +69,47 @@ export default function About() {
                     {exp.description}
                   </p>
                 </div>
+                <div className="flex-shrink-0 hidden sm:flex items-start">
+                  <span className="text-xs px-2 py-1 rounded-full border border-border text-muted-foreground">
+                    {exp.type}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold flex items-center gap-2">
+              <GraduationCap className="w-5 h-5" />
+              Education
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {education.map((edu, index) => (
+              <div
+                key={index}
+                className="flex gap-4 p-4 rounded-lg border border-border hover:bg-muted/30 transition-colors group"
+              >
+                <div className="flex-shrink-0 w-16 text-right">
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                    {edu.year}
+                  </span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold mb-1 group-hover:text-foreground transition-colors">
+                    {edu.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {edu.school}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {edu.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -77,32 +125,40 @@ export default function About() {
           </div>
 
           <div className="space-y-3">
-            {certifications.map((cert, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 p-4 rounded-lg border border-border hover:bg-muted/30 transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center group-hover:bg-muted/50 transition-colors flex-shrink-0">
-                  {cert.name.includes('Database') ? (
-                    <Database className="w-5 h-5 text-muted-foreground" />
-                  ) : (
-                    <Code2 className="w-5 h-5 text-muted-foreground" />
+            {certifications.map((cert, index) => {
+              const Icon = cert.icon
+              const isLinked = Boolean(cert.credentialUrl)
+              const Wrapper = isLinked ? 'a' : 'div'
+              const wrapperProps = isLinked
+                ? { href: cert.credentialUrl, target: '_blank', rel: 'noopener noreferrer' }
+                : {}
+
+              return (
+                <Wrapper
+                  key={index}
+                  {...wrapperProps}
+                  className="flex items-center gap-3 p-4 rounded-lg border border-border hover:bg-muted/30 transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center group-hover:bg-muted/50 transition-colors flex-shrink-0">
+                    <Icon className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium group-hover:text-foreground transition-colors">
+                      {cert.name}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {cert.issuer}
+                    </p>
+                  </div>
+                  {isLinked && (
+                    <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
                   )}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-medium group-hover:text-foreground transition-colors">
-                    {cert.name}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {cert.issuer}
-                  </p>
-                </div>
-                <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
-              </div>
-            ))}
+                </Wrapper>
+              )
+            })}
           </div>
 
-          {/* New LinkedIn Link Section */}
+          {/* LinkedIn Link Section */}
           <div className="mt-6 pt-4 border-t border-border/50 text-center">
             <a
               href="https://www.linkedin.com/in/cristan-ramos-837763306"
