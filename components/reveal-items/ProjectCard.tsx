@@ -29,9 +29,14 @@ export default function ProjectCard({ title, description, category, technologies
                     onClick()
                 }
             }}
-            className={`group cursor-pointer hover:shadow-md hover:border-primary/40 transition-all duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`group cursor-pointer hover:shadow-md hover:border-primary/40 transition-all duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isInView
+                    ? 'opacity-100 translate-x-0 translate-y-0'
+                    : index % 3 === 0
+                        ? 'opacity-0 -translate-x-12'
+                        : index % 3 === 1
+                            ? 'opacity-0 translate-y-8'
+                            : 'opacity-0 translate-x-12'
                 }`}
-            style={{ transitionDelay: `${index * 100}ms` }}
         >
             <CardHeader className="p-4 pb-3">
                 <div className="flex items-center justify-between mb-2">

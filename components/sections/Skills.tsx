@@ -16,9 +16,12 @@ function SkillCategoryBlock({ title, skills, index }: { title: string; skills: {
   return (
     <div
       ref={ref}
-      className={`space-y-3 transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      className={`space-y-3 transition-all duration-700 ease-out ${isInView
+          ? 'opacity-100 translate-x-0'
+          : index % 2 === 0
+            ? 'opacity-0 -translate-x-12'
+            : 'opacity-0 translate-x-12'
         }`}
-      style={{ transitionDelay: `${index * 150}ms` }}
     >
       <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
         {title}

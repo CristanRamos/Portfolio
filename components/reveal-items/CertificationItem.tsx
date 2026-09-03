@@ -23,9 +23,12 @@ export default function CertificationItem({ name, issuer, icon: Icon, credential
         <Wrapper
             ref={ref as any}
             {...wrapperProps}
-            className={`flex items-center gap-3 p-4 rounded-lg border border-border hover:bg-muted/30 transition-all duration-700 ease-out group ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`flex items-center gap-3 p-4 rounded-lg border border-border hover:bg-muted/30 transition-all duration-700 ease-out group ${isInView
+                    ? 'opacity-100 translate-x-0'
+                    : index % 2 === 0
+                        ? 'opacity-0 -translate-x-12'
+                        : 'opacity-0 translate-x-12'
                 }`}
-            style={{ transitionDelay: `${index * 100}ms` }}
         >
             <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center group-hover:bg-muted/50 transition-colors flex-shrink-0">
                 <Icon className="w-5 h-5 text-muted-foreground" />
