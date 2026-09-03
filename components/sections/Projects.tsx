@@ -104,22 +104,20 @@ export default function Projects() {
     },
     {
       id: 5,
-      title: 'Unified Application and Certification System',
+      title: 'User Access Control System (UACS)',
       category: 'Cloud-Native Web Application',
-      description: 'A scalable serverless platform designed to automate the end-to-end lifecycle of digital applications and official certifications.',
-      detailedDescription: 'Architected a high-availability solution using a serverless framework to streamline complex application workflows. The system leverages event-driven logic to handle submissions, multi-stage approvals, and automated certificate issuance, eliminating the need for manual processing and physical infrastructure management.',
+      description: 'A serverless platform used by DTI to manage employee account provisioning and access requests across internal project systems.',
+      detailedDescription: 'Built a production web application on AWS Serverless architecture for the Department of Trade and Industry (DTI), enabling employees to submit account and access requests. The system streamlines approval workflows and centralizes permission management across multiple internal project systems, replacing manual account provisioning processes.',
       technologies: ['AWS Lambda', 'Amazon API Gateway', 'AWS Step Functions', 'Amazon DynamoDB', 'JavaScript/Node.js'],
       icon: Code2,
       highlights: [
-        'Built a 100% serverless architecture to ensure high scalability and cost-efficiency',
-        'Orchestrated complex multi-step approval workflows using AWS Step Functions',
-        'Designed a high-performance NoSQL schema in DynamoDB for millisecond data retrieval',
-        'Automated document generation and digital certification issuance',
+        'In active use by DTI for employee account and access provisioning',
+        'Built a 100% serverless architecture for scalability and cost-efficiency',
+        'Orchestrated multi-step approval workflows using AWS Step Functions',
+        'Designed a high-performance NoSQL schema in DynamoDB for fast data retrieval',
         'Implemented secure, RESTful entry points via Amazon API Gateway',
-        'Reduced operational overhead by eliminating traditional server maintenance',
+        'Replaced manual, paper-based account request processes with a digital workflow',
       ],
-      // No githubLink/demoLink yet — dialog below shows an honest fallback
-      // instead of silently omitting a links section.
     }
   ]
 

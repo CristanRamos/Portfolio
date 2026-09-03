@@ -4,8 +4,9 @@ import { Layers } from 'lucide-react'
 import {
   SiJavascript, SiReact, SiTailwindcss, SiHtml5, SiFlutter, SiDart,
   SiBootstrap, SiNodedotjs, SiPhp, SiPostgresql, SiMongodb, SiMysql,
-  SiPostman, SiVercel, SiFirebase, SiGit, SiSupabase,
+  SiPostman, SiVercel, SiFirebase, SiGit, SiSupabase, SiGithub,
 } from 'react-icons/si'
+import { VscVscode } from 'react-icons/vsc'
 import { FaAws, FaCss3Alt } from 'react-icons/fa'
 import Reveal from '@/components/Reveal'
 import { useInView } from '@/hooks/useInView'
@@ -17,10 +18,10 @@ function SkillCategoryBlock({ title, skills, index }: { title: string; skills: {
     <div ref={ref}>
       <div
         className={`space-y-3 transition-all duration-700 ease-out ${isInView
-            ? 'opacity-100 translate-x-0'
-            : index % 2 === 0
-              ? 'opacity-0 -translate-x-full'
-              : 'opacity-0 translate-x-full'
+          ? 'opacity-100 translate-x-0'
+          : index % 2 === 0
+            ? 'opacity-0 -translate-x-full'
+            : 'opacity-0 translate-x-full'
           }`}
         style={{ transitionDelay: `${index * 150}ms` }}
       >
@@ -66,6 +67,7 @@ export default function Skills() {
         { name: 'PostgreSQL', icon: SiPostgresql },
         { name: 'MongoDB', icon: SiMongodb },
         { name: 'MySQL', icon: SiMysql },
+        { name: 'SQL', icon: SiPostgresql },
         { name: 'REST APIs', icon: SiPostman },
       ],
     },
@@ -75,14 +77,21 @@ export default function Skills() {
         { name: 'AWS', icon: FaAws },
         { name: 'Vercel', icon: SiVercel },
         { name: 'Firebase', icon: SiFirebase },
-        { name: 'Git', icon: SiGit },
         { name: 'Supabase', icon: SiSupabase },
+      ],
+    },
+    {
+      title: 'Tools',
+      skills: [
+        { name: 'Git', icon: SiGit },
+        { name: 'GitHub', icon: SiGithub },
+        { name: 'VS Code', icon: VscVscode },
       ],
     },
   ]
 
   return (
-    <section id="about" className="py-16 overflow-x-hidden">
+    <section id="skills" className="py-16 overflow-x-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="flex items-center gap-2 mb-6">

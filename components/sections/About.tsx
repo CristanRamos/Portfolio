@@ -11,8 +11,8 @@ export default function About() {
     {
       title: 'QA and Full Stack Web Developer',
       company: 'Kalamansi Studios Inc.',
-      year: '2025',
-      type: 'Full-time',
+      year: '2025-2026',
+      type: 'Full-time/Freelance',
       description: 'Developing and maintaining web applications using AWS and its components. Ensuring quality through comprehensive testing.'
     },
     {
@@ -28,7 +28,7 @@ export default function About() {
     {
       title: 'BS Information Technology',
       school: 'National University - Dasmariñas',
-      year: '2019',
+      year: '2022-2026',
       description: 'Specialization in Web and App Development · GPA: 3.1'
     },
   ]

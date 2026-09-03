@@ -23,6 +23,7 @@ export default function Navigation() {
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Tech Stack' },
     { href: '#projects', label: 'Projects' },
+    { href: '#seminars', label: 'Seminars' },
   ]
 
   return (
