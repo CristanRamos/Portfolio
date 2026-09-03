@@ -18,15 +18,15 @@ export default function ExperienceItem({ title, company, year, type, description
         <div ref={ref}>
             <div
                 className={`flex gap-4 p-4 rounded-lg border border-border hover:bg-muted/30 transition-all duration-700 ease-out group ${isInView
-                        ? 'opacity-100 translate-x-0'
-                        : index % 2 === 0
-                            ? 'opacity-0 -translate-x-full'
-                            : 'opacity-0 translate-x-full'
+                    ? 'opacity-100 translate-x-0'
+                    : index % 2 === 0
+                        ? 'opacity-0 -translate-x-full'
+                        : 'opacity-0 translate-x-full'
                     }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
             >
-                <div className="flex-shrink-0 w-16 text-right">
-                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                <div className="flex-shrink-0 w-20 text-right">
+                    <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                         {year}
                     </span>
                 </div>

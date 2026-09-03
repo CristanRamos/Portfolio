@@ -24,8 +24,8 @@ export default function EducationItem({ title, school, year, description, index 
                     }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
             >
-                <div className="flex-shrink-0 w-16 text-right">
-                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                <div className="flex-shrink-0 w-20 text-right">
+                    <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                         {year}
                     </span>
                 </div>
