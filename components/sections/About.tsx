@@ -1,3 +1,5 @@
+'use client'
+
 import { Award, GraduationCap, Briefcase, Database, Code2, ClipboardList } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 import ExperienceItem from '@/components/reveal-items/ExperienceItem'
