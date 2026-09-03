@@ -9,11 +9,25 @@ import CertificationItem from '@/components/reveal-items/CertificationItem'
 export default function About() {
   const experiences = [
     {
-      title: 'QA and Full Stack Web Developer',
+      title: 'Full Stack Web Developer',
       company: 'Kalamansi Studios Inc.',
-      year: '2025-2026',
-      type: 'Full-time/Freelance',
-      description: 'Developing and maintaining web applications using AWS and its components. Ensuring quality through comprehensive testing.'
+      year: 'May 2026 – Present',
+      type: 'Freelance',
+      description: 'Developed the UACS web application used by the company and its client to manage user access requests and permissions across project systems.'
+    },
+    {
+      title: 'Full Stack Web Developer Intern',
+      company: 'Kalamansi Studios Inc.',
+      year: 'Jan – May 2026',
+      type: 'Internship',
+      description: 'Developed a searching module for one of their systems, built a client-facing project with the dev team, and provided Level 1 and 2 support.'
+    },
+    {
+      title: 'Quality Assurance Tester Intern',
+      company: 'Kalamansi Studios Inc.',
+      year: 'Nov – Dec 2025',
+      type: 'Internship',
+      description: 'Performed software testing and assisted in identifying issues and bugs.'
     },
     {
       title: 'Team Lead - Event Registration System',
