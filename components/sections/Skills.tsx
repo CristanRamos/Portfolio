@@ -14,28 +14,30 @@ function SkillCategoryBlock({ title, skills, index }: { title: string; skills: {
   const { ref, isInView } = useInView<HTMLDivElement>()
 
   return (
-    <div
-      ref={ref}
-      className={`space-y-3 transition-all duration-700 ease-out ${isInView
-        ? 'opacity-100 translate-x-0'
-        : index % 2 === 0
-          ? 'opacity-0 -translate-x-12'
-          : 'opacity-0 translate-x-12'
-        }`}
-    >
-      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-        {title}
-      </h3>
-      <div className="flex flex-wrap gap-2">
-        {skills.map(({ name, icon: Icon }) => (
-          <span
-            key={name}
-            className="px-3 py-1.5 text-sm rounded-full bg-muted hover:bg-primary/10 hover:border-primary/40 transition-colors border border-border flex items-center gap-2"
-          >
-            <Icon className="w-4 h-4" aria-hidden />
-            <span>{name}</span>
-          </span>
-        ))}
+    <div ref={ref}>
+      <div
+        className={`space-y-3 transition-all duration-700 ease-out ${isInView
+            ? 'opacity-100 translate-x-0'
+            : index % 2 === 0
+              ? 'opacity-0 -translate-x-full'
+              : 'opacity-0 translate-x-full'
+          }`}
+        style={{ transitionDelay: `${index * 150}ms` }}
+      >
+        <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+          {title}
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {skills.map(({ name, icon: Icon }) => (
+            <span
+              key={name}
+              className="px-3 py-1.5 text-sm rounded-full bg-muted hover:bg-primary/10 hover:border-primary/40 transition-colors border border-border flex items-center gap-2"
+            >
+              <Icon className="w-4 h-4" aria-hidden />
+              <span>{name}</span>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )

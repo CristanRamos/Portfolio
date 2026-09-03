@@ -21,13 +21,14 @@ export default function Reveal({ children, className = '', delay = 0, direction 
                 : 'translate-y-16'
 
     return (
-        <div
-            ref={ref}
-            className={`transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-x-0 translate-y-0' : `opacity-0 ${hiddenClass}`
-                } ${className}`}
-            style={{ transitionDelay: `${delay}ms` }}
-        >
-            {children}
+        <div ref={ref}>
+            <div
+                className={`transition-all duration-700 ease-out ${isInView ? 'opacity-100 translate-x-0 translate-y-0' : `opacity-0 ${hiddenClass}`
+                    } ${className}`}
+                style={{ transitionDelay: `${delay}ms` }}
+            >
+                {children}
+            </div>
         </div>
     )
 }
