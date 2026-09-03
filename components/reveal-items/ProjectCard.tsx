@@ -32,10 +32,10 @@ export default function ProjectCard({ title, description, category, technologies
             className={`group cursor-pointer hover:shadow-md hover:border-primary/40 transition-all duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isInView
                     ? 'opacity-100 translate-x-0 translate-y-0'
                     : index % 3 === 0
-                        ? 'opacity-0 -translate-x-12'
+                        ? 'opacity-0 -translate-x-full'
                         : index % 3 === 1
-                            ? 'opacity-0 translate-y-8'
-                            : 'opacity-0 translate-x-12'
+                            ? 'opacity-0 translate-y-16'
+                            : 'opacity-0 translate-x-full'
                 }`}
         >
             <CardHeader className="p-4 pb-3">

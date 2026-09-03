@@ -15,10 +15,10 @@ export default function Reveal({ children, className = '', delay = 0, direction 
 
     const hiddenClass =
         direction === 'left'
-            ? '-translate-x-12'
+            ? '-translate-x-full'
             : direction === 'right'
-                ? 'translate-x-12'
-                : 'translate-y-8'
+                ? 'translate-x-full'
+                : 'translate-y-16'
 
     return (
         <div

@@ -124,7 +124,7 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-16">
+    <section id="about" className="py-16 overflow-x-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-6">

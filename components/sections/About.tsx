@@ -42,7 +42,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-16">
+    <section id="about" className="py-16 overflow-x-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Experience Section */}
         <div className="mb-12">

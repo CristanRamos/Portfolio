@@ -17,10 +17,10 @@ function SkillCategoryBlock({ title, skills, index }: { title: string; skills: {
     <div
       ref={ref}
       className={`space-y-3 transition-all duration-700 ease-out ${isInView
-          ? 'opacity-100 translate-x-0'
-          : index % 2 === 0
-            ? 'opacity-0 -translate-x-12'
-            : 'opacity-0 translate-x-12'
+        ? 'opacity-100 translate-x-0'
+        : index % 2 === 0
+          ? 'opacity-0 -translate-x-12'
+          : 'opacity-0 translate-x-12'
         }`}
     >
       <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
@@ -80,7 +80,7 @@ export default function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-16">
+    <section id="about" className="py-16 overflow-x-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="flex items-center gap-2 mb-6">
